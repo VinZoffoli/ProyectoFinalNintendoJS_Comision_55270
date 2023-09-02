@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/img/images/triforce-icon.png" type="image/x-icon">
+    <title>Triforce</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <div id="fondo" class="fondo"></div>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-2 fixed-top">
+      <div class="container">
+        <a
+          class="navbar-brand d-flex justify-content-between align-items-center order-lg-0"
+          href="index.html"
+        >
+          <div class="triforce-wrapper">
+            <div class="triforce"></div>
+          </div>
+          <span class="text-uppercase fw-lighter ms-2">Triforce</span>
+        </a>
+
+        <div class="order-lg-2 nav-btns">
+          <a href="carrito.html" class="position-relative custom-button">
+            <i class="fa fa-shopping-cart"></i>
+            <span id="numerito" class="position-absolute top-0 start-100 translate-middle badge bg-primary"></span>
+          </a>
+        </div>
+
+          <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+
+        <div class="collapse navbar-collapse order-lg-1" id="navMenu">
+            <ul class="navbar-nav mx-auto text-center">
+              <li class="nav-item px-2 py-2 border-0">
+                <a class="nav-link text-uppercase text-dark" href="./index.html"
+                  >Inicio</a
+                >
+              </li>
+            <li class="nav-item px-2 py-2">
+              <a
+                class="nav-link text-uppercase text-dark"
+                href="./productos.html"
+                >Productos</a
+              >
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- navbar -->
+
+    <div class="contcart">
+      <div class="cart">
+        <div class="topcart">
+          <h2>Triforce</h2>
+          <h2 id="itemA"></h2>
+        </div>
+        <table cellspacing="0" class="table-head">
+          <tr>
+            <th width="150" class="head-img"></th>
+            <th width="360">Nombre</th>
+            <th width="360">Cantidad</th>
+            <th width="150">Precio</th>
+            <th width="70">Borrar</th>
+          </tr>
+        </table>
+        <table id="root" cellspacing="0"></table>
+        <hr />
+      </div>
+
+      <div class="sumcart">
+        <div class="topcart">
+          <h2>Detalles</h2>
+        </div>
+        <div class="detailcart">
+          <h2 id="itemB"></h2>
+          <h2 id="totalA"></h2>
+        </div>
+        <div style="margin: 30px; padding: 0 30px">
+          <h2>Envio</h2>
+          <input type="text" placeholder="Envio standard" />
+          <h2>Codigo de Descuento</h2>
+          <input type="text" placeholder="Ingresa tu codigo" id="promocode" />
+          <button class="first-btn" id="promo" onclick="promo()">
+            Aplicar
+          </button>
+        </div>
+        <hr />
+        <div class="topcart">
+          <h2>Total</h2>
+          <h2 id="totalB"></h2>
+        </div>
+        <div style="padding: 0 10px; margin-bottom: 20px">
+          <button class="checkout" id="carrito-acciones-comprar">Comprar</button>
+          <button class="vaciar-carrito" id="carrito-acciones-vaciar">
+            Vaciar carrito
+          </button>
+          <p id="mensaje-compra-exitosa" class="carrito-comprado disabled">
+            Muchas gracias por tu compra. <i class="bi bi-emoji-laughing"></i>
+        </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="payment-invoice" class="payment-invoice hider">
+    <div class="container">
+      <button id="closeInvoice" class="close-button">X</button>
+      <div id="Checkout" class="inline">
+          <h1>Factura de pago</h1>
+          <div class="card-row">
+              <span class="visa"></span>
+              <span class="mastercard"></span>
+              <span class="amex"></span>
+              <span class="discover"></span>
+          </div>
+          <form>
+              <div class="form-group">
+                  <label for="PaymentAmount">Monto de pago</label>
+                  <div class="amount-placeholder">
+                      <span>$</span>
+                      <span>500.00</span>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label or="NameOnCard">Nombre</label>
+                  <input id="NameOnCard" class="form-control" type="text" maxlength="255"></input>
+              </div>
+              <div class="form-group">
+                  <label for="CreditCardNumber">Numero de Tarjeta</label>
+                  <input id="CreditCardNumber" class="null card-image form-control" type="text"></input>
+              </div>
+              <div class="expiry-date-group form-group">
+                  <label for="ExpiryDate">Fecha de Expiración</label>
+                  <input id="ExpiryDate" class="form-control" type="text" placeholder="MM / YY" maxlength="7"></input>
+              </div>
+              <div class="security-code-group form-group">
+                  <label for="SecurityCode">Codigo de Seguridad</label>
+                  <div class="input-container" >
+                      <input id="SecurityCode" class="form-control" type="text" ></input>
+                      <i id="cvc" class="fa fa-question-circle"></i>
+                  </div>
+                  <div class="cvc-preview-container two-card hide">
+                    <div class="amex-cvc-preview"></div>
+                    <div class="visa-mc-dis-cvc-preview"></div>
+                </div>
+              </div>
+              <div class="zip-code-group form-group">
+                  <label for="ZIPCode">Codigo Postal</label>
+                  <div class="input-container hide">
+                    <input id="ZIPCode" class="form-control" type="text" maxlength="10"></input>
+                    <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-placement="left" data-content="Enter the ZIP/Postal code for your credit card billing address."><i class="fa fa-question-circle"></i></a>
+                </div>
+              </div>
+              <button id="PayButton" class="btn btn-block btn-success submit-button" type="submit">
+                  <span class="submit-button-lock"></span>
+                  <span class="align-middle"></span>
+              </button>
+          </form>
+      </div>
+    </div>
+  </div>
+
+
+
+  
+  <div class="logos">
+    <div class="logos-slide">
+      <img src="./assets/img/images/I-Canela.webp" />
+      <img src="./assets/img/images/I-CFalco.avif" />
+      <img src="./assets/img/images/I-DonkeyKong.png" />
+      <img src="./assets/img/images/I-Fox.webp" />
+      <img src="./assets/img/images/I-IceClimbers.webp" />
+      <img src="./assets/img/images/I-Inkiling.webp" />
+      <img src="./assets/img/images/I-Kirby.webp" />
+      <img src="./assets/img/images/I-Link.avif" />
+      <img src="./assets/img/images/I-LittleMac.webp" />
+      <img src="./assets/img/images/I-Mario.webp" />
+      <img src="./assets/img/images/I-Ness.png" />
+      <img src="./assets/img/images/I-Pikachu.webp" />
+      <img src="./assets/img/images/I-Pit.webp" />
+      <img src="./assets/img/images/I-Samus.webp" />
+      <img src="./assets/img/images/I-Shulk.png" />
+      <img src="./assets/img/images/I-Bowser.webp" />
+      <img src="./assets/img/images/I-DIDDYKONG.webp" />
+      <img src="./assets/img/images/I-DrMario.webp" />
+      <img src="./assets/img/images/I-GANON.png" />
+      <img src="./assets/img/images/I-Link2.webp" />
+      <img src="./assets/img/images/I-luigi.png" />
+      <img src="./assets/img/images/I-METALKNIGHT.avif" />
+      <img src="./assets/img/images/I-MEGAMAN.avif" />
+      <img src="./assets/img/images/I-MEWTWO.avif" />
+      <img src="./assets/img/images/I-PEACH.png" />
+      <img src="./assets/img/images/I-SONIC.avif" />
+      <img src="./assets/img/images/I-SORA.png" />
+      <img src="./assets/img/images/I-ToonLink.webp" />
+      <img src="./assets/img/images/I-ZELDA.webp" />
+    </div>
+
+    <div class="logos-slide">
+      <img src="./assets/img/images/I-Canela.webp" />
+      <img src="./assets/img/images/I-CFalco.avif" />
+      <img src="./assets/img/images/I-DonkeyKong.png" />
+      <img src="./assets/img/images/I-Fox.webp" />
+      <img src="./assets/img/images/I-IceClimbers.webp" />
+      <img src="./assets/img/images/I-Inkiling.webp" />
+      <img src="./assets/img/images/I-Kirby.webp" />
+      <img src="./assets/img/images/I-Link.avif" />
+      <img src="./assets/img/images/I-LittleMac.webp" />
+      <img src="./assets/img/images/I-Mario.webp" />
+      <img src="./assets/img/images/I-Ness.png" />
+      <img src="./assets/img/images/I-Pikachu.webp" />
+      <img src="./assets/img/images/I-Pit.webp" />
+      <img src="./assets/img/images/I-Samus.webp" />
+      <img src="./assets/img/images/I-Shulk.png" />
+      <img src="./assets/img/images/I-Bowser.webp" />
+      <img src="./assets/img/images/I-DIDDYKONG.webp" />
+      <img src="./assets/img/images/I-DrMario.webp" />
+      <img src="./assets/img/images/I-GANON.png" />
+      <img src="./assets/img/images/I-Link2.webp" />
+      <img src="./assets/img/images/I-luigi.png" />
+      <img src="./assets/img/images/I-METALKNIGHT.avif" />
+      <img src="./assets/img/images/I-MEGAMAN.avif" />
+      <img src="./assets/img/images/I-MEWTWO.avif" />
+      <img src="./assets/img/images/I-PEACH.png" />
+      <img src="./assets/img/images/I-SONIC.avif" />
+      <img src="./assets/img/images/I-SORA.png" />
+      <img src="./assets/img/images/I-ToonLink.webp" />
+      <img src="./assets/img/images/I-ZELDA.webp" />
+    </div>
+  </div>
+
+    <!-- footer -->
+    <footer class="bg-dark py-5">
+      <div class="container">
+        <div class="row text-white g-4">
+          <div class="col-md-6 col-lg-3">
+            <a
+              class="text-uppercase text-decoration-none brand text-white"
+              href="index.html"
+              >Triforce</a
+            >
+            <p class="text-white text-muted mt-3">
+              Nos apasiona llevar la diversión y la emoción de los juegos,
+              personajes y mundos de Nintendo directamente a tu hogar.
+            </p>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <h5 class="fw-light">Links</h5>
+            <ul class="list-unstyled">
+              <li class="my-3">
+                <a href="#" class="text-white text-decoration-none text-muted">
+                  <i class="fas fa-chevron-right me-1"></i> Inicio
+                </a>
+              </li>
+              <li class="my-3">
+                <a href="#" class="text-white text-decoration-none text-muted">
+                  <i class="fas fa-chevron-right me-1"></i> Colección
+                </a>
+              </li>
+              <li class="my-3">
+                <a href="#" class="text-white text-decoration-none text-muted">
+                  <i class="fas fa-chevron-right me-1"></i> Ofertas
+                </a>
+              </li>
+              <li class="my-3">
+                <a href="#" class="text-white text-decoration-none text-muted">
+                  <i class="fas fa-chevron-right me-1"></i> Sobre nosotros
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <h5 class="fw-light mb-3">Contacto</h5>
+            <div
+              class="d-flex justify-content-start align-items-start my-2 text-muted"
+            >
+              <span class="me-3">
+                <i class="fas fa-map-marked-alt"></i>
+              </span>
+              <span class="fw-light"> Cordoba, Cordoba, Argentina </span>
+            </div>
+            <div
+              class="d-flex justify-content-start align-items-start my-2 text-muted"
+            >
+              <span class="me-3">
+                <i class="fas fa-envelope"></i>
+              </span>
+              <span class="fw-light"> TriforceNintendo@gmail.com </span>
+            </div>
+            <div
+              class="d-flex justify-content-start align-items-start my-2 text-muted"
+            >
+              <span class="me-3">
+                <i class="fas fa-phone-alt"></i>
+              </span>
+              <span class="fw-light"> +54 351 8167329 </span>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <h5 class="fw-light mb-3">Siguenos</h5>
+            <div>
+              <ul class="list-unstyled d-flex">
+                <li>
+                  <a
+                    href="#"
+                    class="text-white text-decoration-none text-muted fs-4 me-4"
+                  >
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-white text-decoration-none text-muted fs-4 me-4"
+                  >
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-white text-decoration-none text-muted fs-4 me-4"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-white text-decoration-none text-muted fs-4 me-4"
+                  >
+                    <i class="fab fa-pinterest"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-image">
+        <img src="./assets/img/images/footer_mario.png" alt="Footer de Mario" />
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+    <script src="./bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/carrito.js"></script>
+    <script src="./js/menu.js"></script>
+    <script src="./js/main.js"></script>
+    <script>let productosEnCarrito = JSON.parse(localStorage.getItem("productos-en-carrito")) || [];
+      actualizarNumerito();</script>
+  </body>
+</html>
