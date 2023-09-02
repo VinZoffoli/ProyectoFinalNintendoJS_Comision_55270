@@ -197,7 +197,7 @@ function promo() {
   if (promocode === "1234") {
     cargarProductosCarrito(50);
   } else {
-    prompt("Enter correct promo code");
+    prompt("Ingresa el codigo de descuento correcto");
   }
 }
 

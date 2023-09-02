@@ -1821,9 +1821,16 @@ table {
 
 .table-head {
     color: white;
-    background-color: #18bdfe;
+    background-color: #ec525f;
 }
 
+.first-btn{
+    background-color: #00c3e3;
+}
+
+.vaciar-carrito{
+    background-color: #00c3e3;
+}
 .head-img {
     text-align: left;
     padding-left: 7px;
@@ -1839,7 +1846,7 @@ table {
     margin: 10px 0;
     padding: 0 10px;
     align-items: center;
-    background-color: #18bdfe;
+    background-color: #ec525f;
     color: white;
     height: 40px;
     display: flex;
@@ -1867,7 +1874,7 @@ button {
 
 .checkout {
     width: 100%;
-    background-color: #18bdfe;
+    background-color: #ec525f;
 }
 
 button:hover,
@@ -1880,7 +1887,7 @@ button:hover,
     width: 50px;
     height: 50px;
     border-radius: 50px;
-    border: 1px solid #18bdfe;
+    border: 1px solid #ec525f;
     background-color: white;
     display: flex;
     align-items: center;
@@ -1899,6 +1906,7 @@ button:hover,
 
 .fa-trash:hover {
     color: #333;
+    cursor: pointer;
 }
 
 .empty-cart {
